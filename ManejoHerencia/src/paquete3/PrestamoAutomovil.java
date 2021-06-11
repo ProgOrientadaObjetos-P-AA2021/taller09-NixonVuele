@@ -21,9 +21,10 @@ public class PrestamoAutomovil extends Prestamo {
     double valorAuto;
     double pagoMensual;
 
-    public PrestamoAutomovil(String tipoAuto, String marcaAuto, Persona garante1,
-            double valorAuto, int tiempoPrestamo, String ciudad) {
-        super(garante1, tiempoPrestamo, ciudad);
+    public PrestamoAutomovil(String tipoAuto, String marcaAuto,
+            Persona beneficiario, double valorAuto, int tiempoPrestamo,
+            String ciudad, Persona garante1) {
+        super(beneficiario, tiempoPrestamo, ciudad);
         this.tipoAuto = tipoAuto;
         this.marcaAuto = marcaAuto;
         this.garante1 = garante1;
@@ -76,14 +77,15 @@ public class PrestamoAutomovil extends Prestamo {
                 + "======\n"
                 + "   > Tipo de automóvil: %s\n"
                 + "   > Marca de automóvil: %s\n"
-                + "   > Garante: %s %s\n"
+                + "   > Nombre del Garante: %s\n"
+                + "   > Apellido del Garante: %s\n"
                 + "   > Valor del automóvil: %.2f$\n"
                 + "   > valor mensual a pagar: %.2f$",
                 cadenaFinal,
                 tipoAuto,
                 marcaAuto,
-                beneficiario.getNombre(),
-                beneficiario.getApellido(),
+                garante1.getNombre(),
+                garante1.getApellido(),
                 valorAuto,
                 pagoMensual);
 

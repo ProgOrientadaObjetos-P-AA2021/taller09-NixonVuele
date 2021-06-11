@@ -48,15 +48,20 @@ public class Ejecutor {
             String city = entrada.nextLine();
             Persona cliente = new Persona(nombreClient, apellidoClient);
             if (tipoPrestamo == 1) {
+                System.out.printf("Ingrese el nombre del garante:\n> ");
+                String nombreGarant = entrada.nextLine();
+                System.out.printf("Ingrese el apellido del garante:\n> ");
+                String apellidoGarant = entrada.nextLine();
                 System.out.printf("Ingrese el tipo de automovil:\n> ");
                 String tipoAuto = entrada.nextLine();
                 System.out.printf("Ingrese la marca del vehiculo:\n> ");
                 String marcaVehi = entrada.nextLine();
                 System.out.printf("Ingrese el costo de su Vehiculo:\n> ");
                 Double valorVehi = entrada.nextDouble();
+                Persona garante = new Persona(nombreGarant, apellidoGarant);
                 PrestamoAutomovil prestamosAutoX = new PrestamoAutomovil(
                         tipoAuto, marcaVehi, cliente, valorVehi, tiempoMeses,
-                        city);
+                        city, garante);
                 prestamosAutoX.setCiudad(city);
                 prestamosAutoX.setPagoMensual();
                 System.out.println(prestamosAutoX);
@@ -69,7 +74,7 @@ public class Ejecutor {
                 System.out.printf("Ingrese el costo de la carrera:\n> ");
                 double valorCarrera = entrada.nextDouble();
                 PrestamoEducativo prestamosEduX = new PrestamoEducativo(
-                        nivelEstudio, centroEducativo, valorCarrera, cliente, 
+                        nivelEstudio, centroEducativo, valorCarrera, cliente,
                         tiempoMeses,
                         city);
                 prestamosEduX.setCiudad(city);
